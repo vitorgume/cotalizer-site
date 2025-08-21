@@ -9,7 +9,6 @@ import {
     Wand2,
     Clock,
     LineChart,
-    Plug
 } from "lucide-react";
 import Logo from '../assets/image_1-removebg-preview.png';
 import { useNavigate } from "react-router-dom";
