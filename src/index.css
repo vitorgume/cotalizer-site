@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ====== Marca Cotalizer (3 quadrados) ====== */
+.brand { display:flex; align-items:center; gap:.75rem; }
+
+.logo-mark {
+  /* Tamanho e raio escaláveis */
+  --s: 36px;   /* tamanho padrão (header) */
+  --r: 12px;   /* raio padrão */
+  position: relative;
+  width: var(--s); height: var(--s);
+  display: inline-block;
+}
+.logo-mark .sq { position:absolute; inset:0; border-radius: var(--r); }
+
+/* Camadas */
+.logo-mark .sq.dark  { background:#1B2F40; opacity:.95; transform: translate(-18%, 22%) rotate(-12deg); z-index:1; box-shadow:0 10px 20px rgba(0,0,0,.35); }
+.logo-mark .sq.blue  { background:#2C8ABB;                 transform: translate( 18%, 14%) rotate( 12deg); z-index:2; box-shadow:0  8px 18px rgba(44,138,187,.22); }
+.logo-mark .sq.green { background:#18AF91;                 transform: translate(  0%, -6%) rotate(  0deg); z-index:3; box-shadow:0  8px 18px rgba(24,175,145,.25); }
+
+/* Tamanhos prontos */
+.logo-xs { --s:24px; --r:8px; }
+.logo-sm { --s:28px; --r:10px; }
+.logo-md { --s:36px; --r:12px; }   /* header */
+.logo-lg { --s:64px; --r:16px; }   /* hero/sections */
+
+/* Tipografia melhor alinhada com a marca */
+.brand-text { line-height:1; letter-spacing:-0.02em; }
