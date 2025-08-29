@@ -13,14 +13,12 @@ import {
 import Logo from '../assets/image_1-removebg-preview.png';
 import { useNavigate } from "react-router-dom";
 
-// Paleta fornecida
 const COLORS = {
-    base: "#2D4254", // fundo principal
-    primary: "#18AF91", // CTA / destaque
-    secondary: "#2C8ABB", // links / acentos
+    base: "#2D4254", 
+    primary: "#18AF91", 
+    secondary: "#2C8ABB", 
 };
 
-// Container utilitário
 const Section: React.FC<React.PropsWithChildren<{ id?: string; className?: string }>> = ({ id, className, children }) => (
     <section id={id} className={`relative w-full ${className ?? ""}`}>
         <div className="mx-auto w-full max-w-7xl px-6 md:px-8">{children}</div>
@@ -116,7 +114,7 @@ export default function CotalizerLanding() {
 
     return (
         <div
-            className="min-h-screen scroll-smooth text-white"
+            className="min-h-screen scroll-smooth text-white overflow-x-hidden"
             style={{
                 // Variáveis CSS para facilitar edição de cores
                 // @ts-ignore
