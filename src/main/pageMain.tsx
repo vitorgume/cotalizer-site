@@ -140,8 +140,8 @@ export default function CotalizerLanding() {
 
                     <div className="flex items-center gap-3">
                         <a
-                            href={'/espera'}
-                            onClick={() => navigate('/espera')}
+                            href={'https://cotalizer-frontend.onrender.com/usuario/login'}
+                            onClick={() => window.location.href = 'https://cotalizer-frontend.onrender.com/usuario/login'}
 
 
                             className="hidden rounded-xl border border-white/20 px-4 py-2 text-sm text-white/90 transition hover:bg-white/10 md:inline-block"
@@ -149,8 +149,8 @@ export default function CotalizerLanding() {
                             Entrar
                         </a>
                         <a
-                            href={'/espera'}
-                            onClick={() => navigate('/espera')}
+                            href={'https://cotalizer-frontend.onrender.com/usuario/cadastro'}
+                            onClick={() => window.location.href='https://cotalizer-frontend.onrender.com/usuario/cadastro'}
                             className="inline-flex items-center gap-2 rounded-xl bg-[var(--cotalizer-primary)] px-4 py-2 text-sm font-semibold text-[#0C2C25] transition hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-white/50"
                         >
                             Criar conta
