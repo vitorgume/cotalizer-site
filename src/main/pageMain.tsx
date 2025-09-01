@@ -94,7 +94,7 @@ const AppMockup: React.FC = () => {
                                 <div className="flex items-center gap-2">
                                     <button
                                         className="group inline-flex items-center gap-2 rounded-xl bg-[var(--cotalizer-primary)] px-4 py-2 font-semibold text-[#0C2C25] transition hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-white/50"
-                                        onClick={() => navigate('/espera')}
+                                        onClick={() => navigate('https://cotalizer-frontend.onrender.com/usuario/cadastro')}
                                     >
                                         Criar minha conta
                                         <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
@@ -185,7 +185,7 @@ export default function CotalizerLanding() {
                         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                             <a
                                 href={'https://cotalizer-frontend.onrender.com/usuario/cadastro'}
-                                onClick={() => navigate('/espera')}
+                                onClick={() => navigate('https://cotalizer-frontend.onrender.com/usuario/cadastro')}
                                 className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--cotalizer-primary)] px-5 py-3 font-semibold text-[#0C2C25] transition hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-white/50"
                                 aria-label="Criar conta no Cotalizer"
                             >
@@ -331,7 +331,7 @@ export default function CotalizerLanding() {
                         <div className="flex flex-col items-start gap-3 md:items-end">
                             <a
                                 href={'https://cotalizer-frontend.onrender.com/usuario/cadastro'}
-                                onClick={() => navigate('/espera')}
+                                onClick={() => navigate('https://cotalizer-frontend.onrender.com/usuario/cadastro')}
                                 className="group inline-flex items-center gap-3 rounded-2xl bg-[var(--cotalizer-primary)] px-6 py-3 text-lg font-semibold text-[#0C2C25] transition hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-white/50"
                             >
                                 Criar minha conta
