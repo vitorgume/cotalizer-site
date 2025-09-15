@@ -1,14 +1,12 @@
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import CotalizerLanding from "./main/pageMain"
-import PageEspera from "./espera/pageEspera"
+import CotalizerLanding from "./main/pageMain";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path='/' element={<CotalizerLanding />} />
-        <Route path='/espera' element={<PageEspera />} />
       </Routes>
     </Router>
 
