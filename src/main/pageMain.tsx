@@ -37,9 +37,6 @@ const GradientBlob: React.FC<{ className?: string; color?: string }> = ({ classN
 
 const AppMockup: React.FC = () => {
 
-    const navigate = useNavigate();
-
-
     return (
 
         <div className="relative mx-auto w-full max-w-4xl rounded-2xl border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur">
@@ -94,7 +91,7 @@ const AppMockup: React.FC = () => {
                                 <div className="flex items-center gap-2">
                                     <button
                                         className="group inline-flex items-center gap-2 rounded-xl bg-[var(--cotalizer-primary)] px-4 py-2 font-semibold text-[#0C2C25] transition hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-white/50"
-                                        onClick={() => navigate('https://app-frontend.cotalizer.com/usuario/cadastro')}
+                                        onClick={() => window.location.href='https://app-frontend.cotalizer.com/usuario/cadastro'}
                                     >
                                         Criar minha conta
                                         <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
