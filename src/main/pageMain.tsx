@@ -12,11 +12,12 @@ import {
 } from "lucide-react";
 import Logo from '../assets/image_1-removebg-preview.png';
 import { useNavigate } from "react-router-dom";
+import Planos from "./planos/planos";
 
 const COLORS = {
-    base: "#2D4254", 
-    primary: "#18AF91", 
-    secondary: "#2C8ABB", 
+    base: "#2D4254",
+    primary: "#18AF91",
+    secondary: "#2C8ABB",
 };
 
 const Section: React.FC<React.PropsWithChildren<{ id?: string; className?: string }>> = ({ id, className, children }) => (
@@ -147,7 +148,7 @@ export default function CotalizerLanding() {
                         </a>
                         <a
                             href={'https://app-frontend.cotalizer.com/usuario/cadastro'}
-                            onClick={() => window.location.href='https://app-frontend.cotalizer.com/usuario/cadastro'}
+                            onClick={() => window.location.href = 'https://app-frontend.cotalizer.com/usuario/cadastro'}
                             className="inline-flex items-center gap-2 rounded-xl bg-[var(--cotalizer-primary)] px-4 py-2 text-sm font-semibold text-[#0C2C25] transition hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-white/50"
                         >
                             Criar conta
@@ -304,6 +305,10 @@ export default function CotalizerLanding() {
                         </p>
                     </div>
                 </div>
+            </Section>
+
+            <Section id="planos" className="py-12 md:py-20">
+                <Planos />
             </Section>
 
             {/* CTA final */}
