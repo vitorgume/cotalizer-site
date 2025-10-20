@@ -224,7 +224,6 @@ export default function CotalizerLanding() {
                         { icon: FileText, title: "PDF pronto e bonito", desc: "Layout profissional, logotipo, itens, prazos e condições. Um clique para baixar." },
                         { icon: Clock, title: "Versionamento e histórico", desc: "Acompanhe alterações, revise e recupere versões em segundos." },
                         { icon: Shield, title: "Assinatura e trilha", desc: "Envie para assinatura eletrônica e registre cada etapa com segurança." },
-                        { icon: LineChart, title: "Indicadores", desc: "Taxa de aceite, ticket médio, tempo até o fechamento e muito mais." },
                     ].map(({ icon: Icon, title, desc }) => (
                         <div key={title} className="rounded-2xl border border-white/10 bg-white/5 p-6">
                             <Icon className="h-6 w-6 text-[var(--cotalizer-primary)]" />
