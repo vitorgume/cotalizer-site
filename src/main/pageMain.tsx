@@ -8,8 +8,9 @@ import {
     FileText,
     Wand2,
     Clock,
-    LineChart,
-} from "lucide-react";
+} 
+
+from "lucide-react";
 import Logo from '../assets/image_1-removebg-preview.png';
 import { useNavigate } from "react-router-dom";
 import Planos from "./planos/planos";

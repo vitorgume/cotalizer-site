@@ -17,7 +17,7 @@ export default function Planos() {
     
                 {/* FREE */}
                 <article className={'card'} aria-labelledby="p-free">
-                    <h2 className="title" id="p-free">Free</h2>
+                    <h2 className="title" id="p-free">Starter</h2>
                     <div className="subtitle">Primeiros 30 dias, orçamentos ilimitados</div>
                     <div className="price">R$ 0,00 <span className="per">/ mês</span></div>
                     <ul className="features">
