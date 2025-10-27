@@ -8,9 +8,9 @@ import {
     FileText,
     Wand2,
     Clock,
-} 
+}
 
-from "lucide-react";
+    from "lucide-react";
 import Logo from '../assets/image_1-removebg-preview.png';
 import { useNavigate } from "react-router-dom";
 import Planos from "./planos/planos";
@@ -20,6 +20,25 @@ const COLORS = {
     primary: "#18AF91",
     secondary: "#2C8ABB",
 };
+
+const AnnouncementBar: React.FC = () => (
+    <div className="border-b border-white/10 bg-[var(--cotalizer-secondary)]/15">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-center gap-2 px-6 py-2 text-sm text-white/90 md:px-8">
+            <Sparkles className="h-4 w-4 text-[var(--cotalizer-primary)]" />
+            <span>
+                <strong>30 dias grátis</strong> com geração <strong>ilimitada</strong> de orçamentos
+            </span>
+            <a
+                href="https://app-frontend.cotalizer.com/usuario/cadastro"
+                className="inline-flex items-center gap-1 underline decoration-dotted decoration-white/40 hover:text-white"
+                aria-label="Criar conta grátis por 30 dias"
+            >
+                Criar conta <ArrowRight className="h-3 w-3" />
+            </a>
+        </div>
+    </div>
+);
+
 
 const Section: React.FC<React.PropsWithChildren<{ id?: string; className?: string }>> = ({ id, className, children }) => (
     <section id={id} className={`relative w-full ${className ?? ""}`}>
@@ -80,10 +99,17 @@ const AppMockup: React.FC = () => {
                                 <FileText className="h-5 w-5 text-white/70" />
                                 <p className="text-sm text-white/70">Prévia do PDF</p>
                             </div>
-                            <span className="rounded-full bg-[rgba(24,175,145,0.2)] px-3 py-1 text-xs text-[var(--cotalizer-primary)]">
-                                IA aplicada
-                            </span>
+
+                            <div className="flex flex-col items-end gap-1">
+                                <span className="rounded-full bg-[rgba(24,175,145,0.2)] px-3 py-1 text-xs font-semibold text-[var(--cotalizer-primary)]">
+                                    30 dias grátis
+                                </span>
+                                <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80">
+                                    IA ilimitada
+                                </span>
+                            </div>
                         </div>
+
                         <div className="grid gap-3 md:grid-cols-2">
                             <div className="h-56 rounded-xl bg-white/10" />
                             <div className="space-y-3">
@@ -93,7 +119,7 @@ const AppMockup: React.FC = () => {
                                 <div className="flex items-center gap-2">
                                     <button
                                         className="group inline-flex items-center gap-2 rounded-xl bg-[var(--cotalizer-primary)] px-4 py-2 font-semibold text-[#0C2C25] transition hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-white/50"
-                                        onClick={() => window.location.href='https://app-frontend.cotalizer.com/usuario/cadastro'}
+                                        onClick={() => window.location.href = 'https://app-frontend.cotalizer.com/usuario/cadastro'}
                                     >
                                         Criar minha conta
                                         <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
@@ -159,6 +185,8 @@ export default function CotalizerLanding() {
                 </div>
             </header>
 
+            <AnnouncementBar />
+
             {/* Hero */}
             <Section id="hero" className="pt-16 md:pt-24">
                 <GradientBlob className="-left-24 -top-24 h-[40rem] w-[40rem]" color={COLORS.secondary} />
@@ -178,6 +206,16 @@ export default function CotalizerLanding() {
                                 precisos em minutos.
                             </span>
                         </motion.h1>
+
+                        <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-sm text-white/90">
+                            <Clock className="h-4 w-4 text-[var(--cotalizer-primary)]" />
+                            <span><strong>30 dias grátis</strong></span>
+                            <span className="text-white/30">•</span>
+                            <Sparkles className="h-4 w-4 text-[var(--cotalizer-secondary)]" />
+                            <span>Geração <strong>ilimitada</strong></span>
+                        </div>
+
+
                         <p className="mt-4 text-lg text-white/80 md:mt-6">
                             O Cotalizer transforma descrições informais em orçamentos profissionais, padronizados e prontos para enviar ao cliente — com geração de PDF, versionamento e histórico.
                         </p>
@@ -316,12 +354,14 @@ export default function CotalizerLanding() {
                 <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-r from-[var(--cotalizer-secondary)]/20 to-[var(--cotalizer-primary)]/20 p-8">
                     <div className="grid items-center gap-8 md:grid-cols-2">
                         <div>
-                            <h3 className="text-2xl font-semibold md:text-3xl">Comece agora — grátis por tempo limitado</h3>
+                            <h3 className="text-2xl font-semibold md:text-3xl">
+                                Comece agora — <span className="text-[var(--cotalizer-primary)]">30 dias grátis</span> com geração ilimitada
+                            </h3>
                             <ul className="mt-4 space-y-2 text-white/85">
                                 {[
-                                    "Geração com IA ilimitada no beta",
-                                    "Templates personalizáveis",
-                                    "Exportação em PDF e histórico",
+                                    "Geração com IA ilimitada por 30 dias",
+                                    "Templates personalizáveis e PDF profissional",
+                                    "Sem cartão de crédito • cancele quando quiser",
                                 ].map((b) => (
                                     <li key={b} className="flex items-center gap-2">
                                         <CheckCircle2 className="h-5 w-5 text-[var(--cotalizer-primary)]" />
@@ -329,6 +369,7 @@ export default function CotalizerLanding() {
                                     </li>
                                 ))}
                             </ul>
+
                         </div>
                         <div className="flex flex-col items-start gap-3 md:items-end">
                             <a
