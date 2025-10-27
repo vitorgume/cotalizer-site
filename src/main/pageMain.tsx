@@ -15,15 +15,17 @@ import Logo from '../assets/image_1-removebg-preview.png';
 import { useNavigate } from "react-router-dom";
 import Planos from "./planos/planos";
 
+// + acrescentar
 const COLORS = {
-    base: "#2D4254",
-    primary: "#18AF91",
-    secondary: "#2C8ABB",
+  base: "#2D4254",
+  primary: "#18AF91",
+  secondary: "#2C8ABB",
+  accent: "#F6C945", 
 };
 
 const AnnouncementBar: React.FC = () => (
-    <div className="border-b border-white/10 bg-[var(--cotalizer-secondary)]/15">
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-center gap-2 px-6 py-2 text-sm text-white/90 md:px-8">
+    <div className="border-b border-white/10 bg-[var(--cotalizer-secondary)]/15 bg-[var(--cotalizer-accent)]">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-center gap-2 px-6 py-2 text-sm text-white/90 md:px-8 text-[var(--cotalizer-base)]">
             <Sparkles className="h-4 w-4 text-[var(--cotalizer-primary)]" />
             <span>
                 <strong>30 dias grátis</strong> com geração <strong>ilimitada</strong> de orçamentos
@@ -146,6 +148,7 @@ export default function CotalizerLanding() {
                 "--cotalizer-base": COLORS.base,
                 "--cotalizer-primary": COLORS.primary,
                 "--cotalizer-secondary": COLORS.secondary,
+                "--cotalizer-accent": COLORS.accent,
                 background: `radial-gradient(1200px 500px at 10% -10%, ${COLORS.secondary}33 0%, transparent 60%), radial-gradient(900px 600px at 110% 0%, ${COLORS.primary}33 0%, transparent 60%), ${COLORS.base}`,
             }}
         >
