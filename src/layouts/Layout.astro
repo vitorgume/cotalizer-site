@@ -1,9 +1,9 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 const {
-  title = 'Cotalizer | Orçamentos com IA rápidos e padronizados',
-  description = 'Crie orçamentos profissionais com IA, PDF pronto, templates e trilha de auditoria no Cotalizer.',
+  title = "Cotalizer | Orçamentos com IA rápidos e padronizados",
+  description = "Crie orçamentos profissionais com IA, PDF pronto, templates e trilha de auditoria no Cotalizer.",
 } = Astro.props;
 ---
 
@@ -21,29 +21,36 @@ const {
   <body class="bg-[#0f1729] text-white antialiased">
     <slot />
     <script is:inline>
-      // Adia o carregamento do GA para depois do carregamento inicial e libera a thread principal
-      const GA_ID = 'G-J65ZEN11Q9';
-      const loadGA = () => {
-        if (window.__gaLoaded) return;
-        window.__gaLoaded = true;
-        const script = document.createElement('script');
-        script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-        script.async = true;
-        script.onload = () => {
-          window.dataLayer = window.dataLayer || [];
-          function gtag() { dataLayer.push(arguments); }
-          gtag('js', new Date());
-          gtag('config', GA_ID);
-        };
-        document.head.appendChild(script);
-      };
-      window.addEventListener('load', () => {
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(loadGA, { timeout: 3000 });
-        } else {
-          setTimeout(loadGA, 1500);
+      const GA_ID = "G-J65ZEN11Q9";
+      let loaded = false;
+
+      function loadGA() {
+        if (loaded) return;
+        loaded = true;
+
+        const s = document.createElement("script");
+        s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+        s.async = true;
+        document.head.appendChild(s);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
         }
-      });
+        gtag("js", new Date());
+        gtag("config", GA_ID);
+      }
+
+      const trigger = () => {
+        loadGA();
+        window.removeEventListener("scroll", trigger);
+        window.removeEventListener("pointerdown", trigger);
+        window.removeEventListener("keydown", trigger);
+      };
+
+      window.addEventListener("scroll", trigger, { passive: true, once: true });
+      window.addEventListener("pointerdown", trigger, { once: true });
+      window.addEventListener("keydown", trigger, { once: true });
     </script>
   </body>
 </html>
