@@ -1,0 +1,445 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/planos.css';
+
+const colors = {
+  base: '#2D4254',
+  primary: '#18AF91',
+  secondary: '#2C8ABB',
+  accent: '#F6C945',
+};
+
+const currentYear = new Date().getFullYear();
+
+const iconLibrary = {
+  arrowRight: (cls = 'h-4 w-4') =>
+    `<svg xmlns="http://www.w3.org/2000/svg" class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>`,
+  check: (cls = 'h-5 w-5') =>
+    `<svg xmlns="http://www.w3.org/2000/svg" class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>`,
+  shield: (cls = 'h-5 w-5') =>
+    `<svg xmlns="http://www.w3.org/2000/svg" class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 6 4 9 8 11 4-2 8-5 8-11V6z"></path></svg>`,
+  sparkles: (cls = 'h-5 w-5') =>
+    `<svg xmlns="http://www.w3.org/2000/svg" class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 13.8 9l5.7 1.7-5.7 1.7L12 18l-1.8-5.6L4.5 10.7 10.2 9z"></path><path d="M5 4 6.4 5.6 5 7.2 3.6 5.6z"></path><path d="M18.2 17.1 20 18l-1.8.9L17.3 20l.9-1.8L16.5 18z"></path></svg>`,
+  fileText: (cls = 'h-5 w-5') =>
+    `<svg xmlns="http://www.w3.org/2000/svg" class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M10 11h4"></path><path d="M10 16h4"></path></svg>`,
+  wand: (cls = 'h-5 w-5') =>
+    `<svg xmlns="http://www.w3.org/2000/svg" class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 18 9-9 2 2-9 9z"></path><path d="M15 6 18 3"></path><path d="m20 7 1 2"></path><path d="M11 3 9 4"></path></svg>`,
+  clock: (cls = 'h-5 w-5') =>
+    `<svg xmlns="http://www.w3.org/2000/svg" class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>`,
+};
+
+const renderIcon = (name, className) => iconLibrary[name]?.(className) ?? '';
+
+const features = [
+  {
+    icon: 'wand',
+    title: 'De texto para orçamento',
+    desc: 'Cole uma descrição. A IA estrutura, precifica e formata com o seu template.',
+  },
+  {
+    icon: 'fileText',
+    title: 'PDF pronto e bonito',
+    desc: 'Layout profissional, logotipo, itens, prazos e condições. Um clique para baixar.',
+  },
+  {
+    icon: 'clock',
+    title: 'Versionamento e histórico',
+    desc: 'Acompanhe alterações, revise e recupere versões em segundos.',
+  },
+  {
+    icon: 'shield',
+    title: 'Assinatura e trilha',
+    desc: 'Envie para assinatura eletrônica e registre cada etapa com segurança.',
+  },
+];
+
+const steps = [
+  {
+    step: 1,
+    title: 'Descreva o que precisa',
+    desc: 'Cole um texto informal ou selecione um template. A IA entende o contexto.',
+  },
+  {
+    step: 2,
+    title: 'Revise e personalize',
+    desc: 'Edite itens, prazos e condições. Seus preços e impostos já aplicados.',
+  },
+  {
+    step: 3,
+    title: 'Gere e envie',
+    desc: 'Baixe o PDF ou encaminhe para assinatura eletrônica com trilha de auditoria.',
+  },
+];
+
+const kpis = [
+  { label: '⏱ Tempo por orçamento', value: '-80%' },
+  { label: '📬 Taxa de envio no dia', value: '+65%' },
+  { label: '🏆 Win-rate médio', value: '+12%' },
+];
+
+const ctaBenefits = [
+  'Geração com IA ilimitada por 30 dias',
+  'Templates personalizáveis e PDF profissional',
+  'Sem cartão de crédito — cancele quando quiser',
+];
+---
+
+<Layout title="Cotalizer | Orçamentos precisos com IA em minutos" description="Transforme descrições informais em orçamentos profissionais com IA, PDF pronto, versionamento e assinatura.">
+  <div
+    class="min-h-screen scroll-smooth text-white overflow-x-hidden"
+    style={`--cotalizer-base:${colors.base}; --cotalizer-primary:${colors.primary}; --cotalizer-secondary:${colors.secondary}; --cotalizer-accent:${colors.accent}; background: radial-gradient(1200px 500px at 10% -10%, ${colors.secondary}33 0%, transparent 60%), radial-gradient(900px 600px at 110% 0%, ${colors.primary}33 0%, transparent 60%), ${colors.base};`}
+  >
+    <header class="sticky top-0 z-30 border-b border-white/10 bg-[var(--cotalizer-base)]/80 backdrop-blur">
+      <div class="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 md:px-8">
+        <a href="#hero" class="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-white/50">
+          <img src="/image_1-removebg-preview.png" alt="Logo Cotalizer" class="h-6 w-6" loading="lazy" />
+          <span class="text-lg font-semibold">Cotalizer</span>
+        </a>
+
+        <nav class="hidden items-center gap-6 text-sm text-white/80 md:flex">
+          <a href="#features" class="hover:text-white">Recursos</a>
+          <a href="#como-funciona" class="hover:text-white">Como funciona</a>
+          <a href="#beneficios" class="hover:text-white">Benefícios</a>
+          <a href="#planos" class="hover:text-white">Planos</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a
+            href="https://app-frontend.cotalizer.com/usuario/login"
+            class="rounded-xl border border-white/20 px-4 py-2 text-sm text-white/90 transition hover:bg-white/10"
+          >
+            Entrar
+          </a>
+          <a
+            href="https://app-frontend.cotalizer.com/usuario/cadastro"
+            class="inline-flex items-center gap-2 rounded-xl bg-[var(--cotalizer-primary)] px-4 py-2 text-sm font-semibold text-[#0C2C25] transition hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-white/50"
+          >
+            Criar conta
+            <span set:html={renderIcon('arrowRight', 'h-4 w-4')} />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="border-b border-white/10 bg-[var(--cotalizer-secondary)]/15 bg-[var(--cotalizer-accent)]">
+      <div class="mx-auto flex w-full max-w-7xl items-center justify-center gap-2 px-6 py-2 text-sm text-[var(--cotalizer-base)] md:px-8">
+        <span class="h-4 w-4 text-[var(--cotalizer-primary)]" aria-hidden set:html={renderIcon('sparkles', 'h-4 w-4 text-[var(--cotalizer-primary)]')} />
+        <span>
+          <strong>30 dias grátis</strong> com geração <strong>ilimitada</strong> de orçamentos
+        </span>
+        <a
+          href="https://app-frontend.cotalizer.com/usuario/cadastro"
+          class="inline-flex items-center gap-1 underline decoration-dotted decoration-white/40 hover:text-white"
+          aria-label="Criar conta grátis por 30 dias"
+        >
+          Criar conta <span class="h-3 w-3" aria-hidden set:html={renderIcon('arrowRight', 'h-3 w-3')} />
+        </a>
+      </div>
+    </div>
+
+    <section id="hero" class="relative w-full pt-16 md:pt-24">
+      <div class="pointer-events-none absolute -left-24 -top-24 h-[40rem] w-[40rem] blur-3xl opacity-20" aria-hidden style={`background: radial-gradient(600px 600px at 50% 50%, ${colors.secondary} 0%, transparent 60%);`} />
+      <div class="pointer-events-none absolute -right-24 top-40 h-[36rem] w-[36rem] blur-3xl opacity-20" aria-hidden style={`background: radial-gradient(600px 600px at 50% 50%, ${colors.primary} 0%, transparent 60%);`} />
+
+      <div class="relative mx-auto grid w-full max-w-7xl items-center gap-10 px-6 pb-16 md:grid-cols-2 md:px-8 md:pb-24">
+        <div>
+          <h1 class="text-4xl font-bold leading-tight md:text-5xl" data-animate>
+            Orçamentos com IA
+            <br />
+            <span class="bg-gradient-to-r from-[var(--cotalizer-primary)] to-[var(--cotalizer-secondary)] bg-clip-text text-transparent">
+              precisos em minutos.
+            </span>
+          </h1>
+
+          <div class="mt-3 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-sm text-white/90">
+            <span class="h-4 w-4 text-[var(--cotalizer-primary)]" aria-hidden set:html={renderIcon('clock', 'h-4 w-4 text-[var(--cotalizer-primary)]')} />
+            <span><strong>30 dias grátis</strong></span>
+            <span class="text-white/30">•</span>
+            <span class="h-4 w-4 text-[var(--cotalizer-secondary)]" aria-hidden set:html={renderIcon('sparkles', 'h-4 w-4 text-[var(--cotalizer-secondary)]')} />
+            <span>Geração <strong>ilimitada</strong></span>
+          </div>
+
+          <p class="mt-4 text-lg text-white/80 md:mt-6 max-w-xl">
+            O Cotalizer transforma descrições informais em orçamentos profissionais, padronizados e prontos para enviar ao cliente — com geração de PDF, versionamento e histórico.
+          </p>
+          <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="https://app-frontend.cotalizer.com/usuario/cadastro"
+              class="group inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--cotalizer-primary)] px-5 py-3 font-semibold text-[#0C2C25] transition hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-white/50"
+              aria-label="Criar conta no Cotalizer"
+            >
+              Criar minha conta
+              <span aria-hidden class="transition group-hover:translate-x-0.5" set:html={renderIcon('arrowRight', 'h-5 w-5')} />
+            </a>
+            <a
+              href="#como-funciona"
+              class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 px-5 py-3 font-medium text-white/90 transition hover:bg-white/10"
+            >
+              Ver como funciona
+            </a>
+          </div>
+          <div class="mt-6 flex items-center gap-3 text-sm text-white/60">
+            <span aria-hidden set:html={renderIcon('shield', 'h-4 w-4')} />
+            <span>Seus dados são protegidos. Assinaturas e PDFs com trilha de auditoria.</span>
+          </div>
+        </div>
+
+        <div class="relative" data-animate="slow">
+          <div class="relative mx-auto w-full max-w-4xl rounded-2xl border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur">
+            <div class="mb-4 flex items-center gap-2">
+              <span class="h-3 w-3 rounded-full bg-red-400/70" />
+              <span class="h-3 w-3 rounded-full bg-yellow-400/70" />
+              <span class="h-3 w-3 rounded-full bg-green-400/70" />
+              <div class="ml-3 text-sm text-white/70">cotalizer.app</div>
+            </div>
+
+            <div class="grid grid-cols-12 gap-4">
+              <div class="col-span-12 md:col-span-4">
+                <div class="mb-4 flex items-center gap-3">
+                  <img src="/image_1-removebg-preview.png" alt="Logo Cotalizer" class="h-7 w-7" loading="lazy" />
+                  <div>
+                    <p class="text-sm text-white/60">Projeto</p>
+                    <p class="font-medium">Novo orçamento</p>
+                  </div>
+                </div>
+                <div class="space-y-3">
+                  <div class="rounded-xl bg-white/5 p-3">
+                    <p class="text-xs uppercase tracking-wide text-white/50">Entrada</p>
+                    <div class="mt-2 h-24 rounded-lg bg-white/5" />
+                  </div>
+                  <div class="rounded-xl bg-white/5 p-3">
+                    <p class="text-xs uppercase tracking-wide text-white/50">Cliente</p>
+                    <div class="mt-2 h-10 rounded-lg bg-white/5" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-span-12 md:col-span-8">
+                <div class="rounded-2xl bg-white/5 p-4 md:p-6">
+                  <div class="mb-4 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <span aria-hidden set:html={renderIcon('fileText', 'h-5 w-5 text-white/70')} />
+                      <p class="text-sm text-white/70">Prévia do PDF</p>
+                    </div>
+
+                    <div class="flex flex-col items-end gap-1">
+                      <span class="rounded-full bg-[rgba(24,175,145,0.2)] px-3 py-1 text-xs font-semibold text-[var(--cotalizer-primary)]">
+                        30 dias grátis
+                      </span>
+                      <span class="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80">
+                        IA ilimitada
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="grid gap-3 md:grid-cols-2">
+                    <div class="h-56 rounded-xl bg-white/10" />
+                    <div class="space-y-3">
+                      <div class="h-10 rounded-lg bg-white/10" />
+                      <div class="h-10 rounded-lg bg-white/10" />
+                      <div class="h-10 rounded-lg bg-white/10" />
+                      <div class="flex items-center gap-2">
+                        <a
+                          class="group inline-flex items-center gap-2 rounded-xl bg-[var(--cotalizer-primary)] px-4 py-2 font-semibold text-[#0C2C25] transition hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-white/50"
+                          href="https://app-frontend.cotalizer.com/usuario/cadastro"
+                        >
+                          Criar minha conta
+                          <span aria-hidden class="transition group-hover:translate-x-0.5" set:html={renderIcon('arrowRight', 'h-4 w-4')} />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="relative w-full py-12 md:py-20">
+      <div class="mx-auto w-full max-w-7xl px-6 md:px-8">
+        <div class="mx-auto max-w-3xl text-center" data-animate>
+          <h2 class="text-2xl font-semibold md:text-3xl">Feito para acelerar seu comercial</h2>
+          <p class="mt-3 text-white/80">
+            Tudo o que você precisa para gerar, aprovar e enviar orçamentos padronizados — sem planilhas confusas.
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {features.map(({ icon, title, desc }) => (
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-6" data-animate>
+              <span aria-hidden set:html={renderIcon(icon, 'h-6 w-6 text-[var(--cotalizer-primary)]')} />
+              <h3 class="mt-4 text-lg font-semibold">{title}</h3>
+              <p class="mt-2 text-white/80">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="relative w-full py-12 md:py-20">
+      <div class="mx-auto w-full max-w-7xl px-6 md:px-8">
+        <div class="mx-auto max-w-3xl text-center" data-animate>
+          <h2 class="text-2xl font-semibold md:text-3xl">Do briefing ao PDF em 3 passos</h2>
+          <p class="mt-3 text-white/80">Rápido para você, claro para o cliente.</p>
+        </div>
+
+        <div class="mt-10 grid gap-4 md:grid-cols-3">
+          {steps.map(({ step, title, desc }) => (
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-6" data-animate>
+              <div class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--cotalizer-secondary)] text-sm font-bold">
+                {step}
+              </div>
+              <h3 class="mt-4 text-lg font-semibold">{title}</h3>
+              <p class="mt-2 text-white/80">{desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="mx-auto mt-10 max-w-2xl rounded-2xl border border-white/10 bg-[var(--cotalizer-secondary)]/10 p-6 text-center" data-animate>
+          <p class="text-white/90">
+            Em testes com equipes comerciais, o Cotalizer reduziu o tempo de criação de um orçamento de <span class="font-semibold">30–45 min</span> para cerca de <span class="font-semibold">3–7 min</span>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="beneficios" class="relative w-full py-12 md:py-20">
+      <div class="mx-auto w-full max-w-7xl px-6 md:px-8">
+        <div class="mx-auto max-w-3xl text-center" data-animate>
+          <h2 class="text-2xl font-semibold md:text-3xl">Resultados que movem a agulha</h2>
+          <p class="mt-3 text-white/80">Padronização, velocidade e previsibilidade.</p>
+        </div>
+
+        <div class="mt-10 grid gap-4 md:grid-cols-3">
+          {kpis.map((kpi) => (
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-6 text-center" data-animate>
+              <div class="text-4xl font-bold text-[var(--cotalizer-primary)]">{kpi.value}</div>
+              <div class="mt-2 text-white/80">{kpi.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <div class="mx-auto mt-10 max-w-xl rounded-2xl border border-white/10 bg-white/5 p-6" data-animate>
+          <div class="flex items-start gap-4">
+            <span class="h-5 w-5 text-[var(--cotalizer-primary)]" aria-hidden set:html={renderIcon('sparkles', 'h-5 w-5 text-[var(--cotalizer-primary)]')} />
+            <p class="text-white/80">
+              "O Cotalizer tirou a equipe do Excel e padronizou propostas em toda a operação. Hoje criamos e enviamos no mesmo dia."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="planos" class="relative w-full py-12 md:py-20">
+      <div class="mx-auto w-full max-w-7xl px-6 md:px-8">
+        <div class="planos-scope">
+          <header>
+            <div class="kicker"><span class="dot"></span>Planos e preços</div>
+            <h1 id="heading">Escolha o plano que acompanha o seu volume de orçamentos</h1>
+            <p>
+              Comece no <strong>Starter</strong> para testar o fluxo. Quando precisar de mais volume e recursos, migre para o <strong>Plus</strong>.
+              Se a sua operação é grande, fale com a gente sobre o <strong>Enterprise</strong>.
+            </p>
+          </header>
+
+          <section class="grid" aria-label="Comparação de planos">
+            <article class="card" aria-labelledby="p-free" data-animate>
+              <h2 class="title" id="p-free">Starter</h2>
+              <div class="subtitle">Primeiros 30 dias, orçamentos ilimitados</div>
+              <div class="price">R$ 0,00 <span class="per">/ mês</span></div>
+              <ul class="features">
+                <li>Até <strong>5 orçamentos/mês</strong></li>
+                <li>Geração de PDF com o seu logo</li>
+                <li>Templates básicos de orçamento</li>
+              </ul>
+              <div class="actions">
+                <a class="btn btn-primary" aria-label="Começar plano Starter" href="https://app-frontend.cotalizer.com/usuario/cadastro">Começar grátis</a>
+              </div>
+              <div class="note">Sem cartão de crédito. Ideal para testar a ferramenta.</div>
+            </article>
+
+            <article class="card is-featured" aria-labelledby="p-plus" data-animate>
+              <div class="ribbon" aria-hidden="true">Mais popular</div>
+              <h2 class="title" id="p-plus">Plus</h2>
+              <div class="subtitle">Para quem envia orçamentos com frequência</div>
+              <div class="price">R$ 29,90 <span class="per">/ mês</span></div>
+              <ul class="features">
+                <li>Até <strong>100 orçamentos/mês</strong></li>
+                <li>Geração de PDF com o seu logo</li>
+                <li>Templates básicos de orçamento</li>
+              </ul>
+              <div class="actions">
+                <a class="btn btn-primary" aria-label="Assinar plano Plus" href="https://app-frontend.cotalizer.com/usuario/cadastro">Assinar</a>
+              </div>
+              <div class="note">Cancele quando quiser. Sem fidelidade.</div>
+            </article>
+
+            <article class="card" aria-labelledby="p-ent" data-animate>
+              <h2 class="title" id="p-ent">Enterprise</h2>
+              <div class="subtitle">Negociável — para alto volume</div>
+              <div class="price">R$ 59,90 <span class="per">/ mês</span></div>
+              <ul class="features">
+                <li>Até <strong>500 orçamentos/mês</strong></li>
+                <li>Geração de PDF com o seu logo</li>
+                <li>Templates básicos de orçamento</li>
+              </ul>
+              <div class="actions">
+                <a class="btn btn-primary" aria-label="Assinar plano Enterprise" href="https://app-frontend.cotalizer.com/usuario/cadastro">Assinar</a>
+              </div>
+              <div class="note">Projetado para times que precisam de escala e governança.</div>
+            </article>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative w-full py-12 md:py-20">
+      <div class="mx-auto w-full max-w-7xl px-6 md:px-8">
+        <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-r from-[var(--cotalizer-secondary)]/20 to-[var(--cotalizer-primary)]/20 p-8" data-animate>
+          <div class="grid items-center gap-8 md:grid-cols-2">
+            <div>
+              <h3 class="text-2xl font-semibold md:text-3xl">
+                Comece agora — <span class="text-[var(--cotalizer-primary)]">30 dias grátis</span> com geração ilimitada
+              </h3>
+              <ul class="mt-4 space-y-2 text-white/85">
+                {ctaBenefits.map((benefit) => (
+                  <li class="flex items-center gap-2">
+                    <span aria-hidden set:html={renderIcon('check', 'h-5 w-5 text-[var(--cotalizer-primary)]')} />
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="flex flex-col items-start gap-3 md:items-end">
+              <a
+                href="https://app-frontend.cotalizer.com/usuario/cadastro"
+                class="group inline-flex items-center gap-3 rounded-2xl bg-[var(--cotalizer-primary)] px-6 py-3 text-lg font-semibold text-[#0C2C25] transition hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-white/50"
+              >
+                Criar minha conta
+                <span aria-hidden class="transition group-hover:translate-x-0.5" set:html={renderIcon('arrowRight', 'h-5 w-5')} />
+              </a>
+              <p class="text-sm text-white/70">Não precisa de cartão de crédito.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t border-white/10 bg-[var(--cotalizer-base)]/80 py-8">
+      <div class="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-4 px-6 text-sm text-white/70 md:flex-row md:px-8">
+        <div class="flex items-center gap-2">
+          <img src="/image_1-removebg-preview.png" alt="Logo Cotalizer" class="h-5 w-5" loading="lazy" />
+          <span>© {currentYear} Cotalizer</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="#features" class="hover:text-white">Recursos</a>
+          <a href="#como-funciona" class="hover:text-white">Como funciona</a>
+          <a href="mailto:contato@cotalizer.com" class="hover:text-white">Contato</a>
+          <a href="#" class="hover:text-white">Política de privacidade</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</Layout>

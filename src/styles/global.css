@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset simples para manter consistência entre navegadores */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0f1729;
+  color: #fff;
+}
+
+/* Marca Cotalizer (3 quadrados) */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-mark {
+  --s: 36px;
+  --r: 12px;
+  position: relative;
+  width: var(--s);
+  height: var(--s);
+  display: inline-block;
+}
+
+.logo-mark .sq {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r);
+}
+
+.logo-mark .sq.dark {
+  background: #1b2f40;
+  opacity: 0.95;
+  transform: translate(-18%, 22%) rotate(-12deg);
+  z-index: 1;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+}
+
+.logo-mark .sq.blue {
+  background: #2c8abb;
+  transform: translate(18%, 14%) rotate(12deg);
+  z-index: 2;
+  box-shadow: 0 8px 18px rgba(44, 138, 187, 0.22);
+}
+
+.logo-mark .sq.green {
+  background: #18af91;
+  transform: translate(0%, -6%) rotate(0deg);
+  z-index: 3;
+  box-shadow: 0 8px 18px rgba(24, 175, 145, 0.25);
+}
+
+.logo-xs {
+  --s: 24px;
+  --r: 8px;
+}
+
+.logo-sm {
+  --s: 28px;
+  --r: 10px;
+}
+
+.logo-md {
+  --s: 36px;
+  --r: 12px;
+}
+
+.logo-lg {
+  --s: 64px;
+  --r: 16px;
+}
+
+.brand-text {
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* Utilitário para animação leve em cards na rolagem */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+[data-animate='slow'] {
+  animation-duration: 0.9s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

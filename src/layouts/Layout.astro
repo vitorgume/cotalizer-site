@@ -1,0 +1,31 @@
+---
+import '../styles/global.css';
+
+const {
+  title = 'Cotalizer | Orçamentos com IA rápidos e padronizados',
+  description = 'Crie orçamentos profissionais com IA, PDF pronto, templates e trilha de auditoria no Cotalizer.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/png" href="/image_1-removebg-preview.png" />
+    <title>{title}</title>
+    <slot name="head" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J65ZEN11Q9"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-J65ZEN11Q9');
+    </script>
+  </head>
+  <body class="bg-[#0f1729] text-white antialiased">
+    <slot />
+  </body>
+</html>
